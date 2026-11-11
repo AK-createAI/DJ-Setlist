@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d1016" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Setlist AI" />
+  <title>Setlist AI — DJ Music Intelligence</title>
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="sources.css?v=4" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span>setlist<span class="brand-ai">.ai</span></span></a>
+      <div class="workspace-label">YOUR WORKSPACE</div>
+      <nav class="primary-nav">
+        <button class="nav-link active" data-view="dashboard" aria-label="Overview" title="Overview"><span class="nav-icon">◫</span> Overview</button>
+        <button class="nav-link" data-view="library" aria-label="My music" title="My music"><span class="nav-icon">▤</span> My music <span class="nav-count" id="navTrackCount">0</span></button>
+        <button class="nav-link" data-view="discover" aria-label="Discover" title="Discover"><span class="nav-icon">⌕</span> Discover</button>
+        <button class="nav-link" data-view="explore" aria-label="Mood explorer" title="Mood explorer"><span class="nav-icon">◉</span> Mood explorer <span class="soon">SOON</span></button>
+      </nav>
+      <div class="sidebar-section"><span>YOUR SETS</span><button id="newSetBtn" title="Create a set">＋</button></div>
+      <div id="setNav" class="set-nav"><div class="empty-set-nav">Your first set starts here.</div></div>
+      <div class="sidebar-spacer"></div>
+      <button class="nav-link settings-link" data-view="settings" aria-label="Settings" title="Settings"><span class="nav-icon">⚙</span> Settings</button>
+      <div class="profile-card"><div class="avatar">A</div><div><strong>My DJ desk</strong><small>Local library</small></div><span class="online-dot"></span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div class="breadcrumb"><span>MY WORKSPACE</span><b>/</b><strong id="crumbTitle">Overview</strong></div><div class="topbar-actions"><div class="local-badge"><span></span> Stored on this device</div><button class="icon-button" id="helpBtn" title="About Setlist AI">?</button></div></header>
+      <div id="viewRoot"></div>
+    </main>
+  </div>
+  <div id="toast" class="toast"></div>
+  <input id="audioInput" type="file" accept="audio/*" multiple hidden />
+  <input id="csvInput" type="file" accept=".csv,text/csv" hidden />
+  <dialog id="trackDialog" class="modal"><form method="dialog"><button class="modal-close" aria-label="Close">×</button></form><div id="trackDialogBody"></div></dialog>
+  <dialog id="helpDialog" class="modal"><form method="dialog"><button class="modal-close" aria-label="Close">×</button></form><div class="eyebrow">A PERSONAL DJ WORKSPACE</div><h2>Your music stays yours.</h2><p>Setlist AI stores your library in this browser on this device. Audio analysis runs locally in your browser. The MVP does not upload or stream music.</p><p>BPM and energy are estimated from the audio waveform. Musical key is a best-effort estimate. Mood and event tags are editable suggestions, not objective facts.</p><button class="button button-primary" onclick="this.closest('dialog').close()">Got it</button></dialog>
+  <script src="app.js?v=4"></script>
+</body>
+</html>
